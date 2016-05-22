@@ -24,7 +24,8 @@ class CreatePersonasTable extends Migration
             $table->date('fechaNacimiento');
 
             //foreign key
-            //$table->
+            $table->integer('idSexo')->unsigned();
+            $table->foreign('idSexo')->references('idSexo')->on('sexos');
 
             //Others
             $table->timestamps();
