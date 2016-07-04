@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSexosTable extends Migration
+class CreateTelefonoPersonasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,20 @@ class CreateSexosTable extends Migration
      */
     public function up()
     {
-        Schema::create('sexos', function (Blueprint $table) {
+        Schema::create('telefono_personas', function (Blueprint $table) {
 
             //primary key
-            $table->increments('idSexo');
+            $table->increments('idTelefonoPersona');
 
             //normal values
-            $table->string('descripcion',10);
+            $table->string('numero',13);
+
+            //foreign key
+            $table->integer('idPersona')->unsigned();
+            $table->foreign('idPersona')->references('idPersona')->on('personas');
 
             //others
             $table->timestamps();
-
         });
     }
 
@@ -33,6 +36,6 @@ class CreateSexosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('sexos');
+        Schema::drop('telefono_personas');
     }
 }

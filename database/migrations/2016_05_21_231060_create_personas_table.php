@@ -21,13 +21,13 @@ class CreatePersonasTable extends Migration
             $table->string('nombres',30);
             $table->string('apellidos',30);
             $table->string('identificacion',10);
-            $table->date('fechaNacimiento');
+            $table->date('fechaNacimiento')->nullable();
 
             //foreign key
             $table->integer('idSexo')->unsigned();
             $table->foreign('idSexo')->references('idSexo')->on('sexos');
 
-            //Others
+            //others
             $table->timestamps();
             $table->softDeletes();
 
