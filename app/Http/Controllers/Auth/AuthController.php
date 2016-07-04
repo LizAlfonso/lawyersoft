@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace LawyerSoft\Http\Controllers\Auth;
 
-use App\User;
+use LawyerSoft\User;
 use Validator;
-use App\Http\Controllers\Controller;
+use LawyerSoft\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

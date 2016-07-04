@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Events;
+namespace LawyerSoft\Events;
 
 abstract class Event
 {

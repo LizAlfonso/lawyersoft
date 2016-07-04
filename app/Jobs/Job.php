@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Jobs;
+namespace LawyerSoft\Jobs;
 
 use Illuminate\Bus\Queueable;
 

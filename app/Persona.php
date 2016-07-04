@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace LawyerSoft;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;

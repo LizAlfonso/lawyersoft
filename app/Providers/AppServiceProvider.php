@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace LawyerSoft\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
