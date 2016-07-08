@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'idRol'
     ];
 
     /**
@@ -23,4 +23,18 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function setPasswordAttribute($valor)
+    {
+        if(!empty($valor))
+        {
+            $this->attributes['password'] = \Hash::make($valor);
+        }
+    }
+
+    //Usuario pertenece a un rol
+    public function rols()
+    {
+        return $this->belongsTo('LawyerSoft\Rol','idRol');
+      }
 }

@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::get('/', 'FrontController@index');
+Route::get('principal', 'FrontController@principal');
+Route::get('log', 'FrontController@log');
+
+//controladores RESTful
+
+Route::resource('login','LoginController');
+Route::resource('usuario', 'UsuarioController');
