@@ -32,7 +32,7 @@
 					 
 						<tr><td>{{$user->name}}</td>
 						<td>{{$user->email}}</td>
-						<td>{{$user->rols->nombre}}</td>
+						<td>{{$user->rols->descripcion}}</td>
 						<td> <div class="twoColumns col-md-10">
 						{!!link_to_route('usuario.edit', $title = 'Modificar', $parameters = $user->id, $attributes = ['class'=>'btn btn-success'])!!}
 
