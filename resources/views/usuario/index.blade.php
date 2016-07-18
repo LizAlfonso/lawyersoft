@@ -1,16 +1,18 @@
 @extends('layouts.headerFooter')
+@include ('layouts.menuHeader')
 
 @section('content')
 
 @include ('layouts.scripts')
-@include ('layouts.scriptDataTable4')
+@include ('dataTable.scriptDataTable4')
 
 <div class="container">
 
-	<div class="banner-list">
+	<div class="banner-data2">
 
 		<h1><center>Lista de Usuarios</center></h1>
-
+        <br>
+        
 		  <div class="col-md-10">
 		  </div>
 		  <div>

@@ -68,7 +68,8 @@
 {!!Html::script('https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js')!!}
 {!!Html::script('js/sweetalert2.min.js')!!}
 
-@yield('scripts')   
+@yield('scripts') 
+@yield('scriptDataTable2')   
 @yield('scriptDataTable4') 
 
 <div class="push"></div>
