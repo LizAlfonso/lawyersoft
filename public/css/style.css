@@ -182,17 +182,18 @@ nav a {
 	padding: 9em 0 12em;
 }*/
 
-.banner-data{
-	padding: 3em 12em;
-	width: 60%;
+.banner-data{    
+	padding: 2.2em 20em;
 	left: 20%;
 }
 
-/*.banner-data2{
-	padding: 7.6em 16em;
-	width: 60%;
-	left: 20%;
-}*/
+.banner-data2{
+	padding: 2.2em 5em;
+}
+
+.banner-data3{
+	padding: 2.2em 0em;
+}
 
 /*.banner-info h1{
 	font-weight: 800;

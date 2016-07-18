@@ -85,7 +85,7 @@ class UsuarioController extends Controller
         $user->save();
 
         Session::flash('message','Usuario modificado correctamente');
-        return Redirect::to('/usuario');
+        return Redirect::to('usuario');
     }
 
     /**
@@ -99,6 +99,6 @@ class UsuarioController extends Controller
         $user = User::find($id);
         $user->delete();
         Session::flash('message','Usuario eliminado correctamente');
-        return Redirect::to('/usuario');
+        return Redirect::to('usuario');
     }
 }

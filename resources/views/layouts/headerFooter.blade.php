@@ -31,19 +31,9 @@
 
              <ul>
 
-               @yield("home") 
-                
                     <!-- Authentication Links -->
-                    @if(Auth::guest())
+                    @if(Auth::check())
 
-                       <li><a href="{{ url('log') }}"><span class='glyphicon glyphicon-user'></span>Ingresar</a></li>
-
-                    @else
-
-                   <!--  @yield("home2")
-
-                    @yield("menu")       -->   
-  <!--  -->
                       <li class="dropdown">
 
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -55,7 +45,13 @@
                             <li><a href="{{ url('logout') }}"><i class="fa fa-btn fa-sign-out"></i>Cerrar sesión</a></li>
                         </ul>
                       </li>
+
+                      @yield("home") 
+
                     @endif
+
+                    @yield("menu")
+
                   </ul>
              </nav>
 

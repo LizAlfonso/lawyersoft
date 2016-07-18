@@ -5,7 +5,6 @@ namespace LawyerSoft\Http\Controllers;
 use Illuminate\Http\Request;
 
 use LawyerSoft\Http\Requests;
-use LawyerSoft\Rol;
 
 class FrontController extends Controller
 {
@@ -20,12 +19,6 @@ class FrontController extends Controller
     	return view('index');
 
     }
-
-    public function log()
-    {
-    	return view('auth/login');
-    }
-
 
     public function principal()
     { 	         

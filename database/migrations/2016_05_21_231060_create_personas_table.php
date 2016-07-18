@@ -20,12 +20,12 @@ class CreatePersonasTable extends Migration
             //normal values
             $table->string('nombres',30);
             $table->string('apellidos',30);
-            $table->string('identificacion',10);
+            $table->string('identificacion',10)->unique();
             $table->date('fechaNacimiento')->nullable();
 
             //foreign key
-            $table->integer('idSexo')->unsigned();
-            $table->foreign('idSexo')->references('idSexo')->on('sexos');
+            $table->integer('idGenero')->unsigned();
+            $table->foreign('idGenero')->references('idGenero')->on('generos');
 
             //others
             $table->timestamps();

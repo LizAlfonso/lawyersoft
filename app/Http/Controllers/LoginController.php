@@ -29,7 +29,7 @@ class LoginController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -43,8 +43,9 @@ class LoginController extends Controller
         if(Auth::attempt(['email' => $request['email'],'password' => $request['password']])){
             return Redirect::to('principal');
         }
+
         Session::flash('message', 'Los datos son incorrectos');
-         return Redirect::to('/log');
+        return Redirect::to('/');
     }
 
     public function logout()
