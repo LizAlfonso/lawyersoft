@@ -110,8 +110,7 @@ return [
     'email'                  => 'correo electrónico',
     'password'               => 'contraseña',
     'password_confirmation'  => 'confirmar contraseña',
-    'idRol'                  => 'rol',
-    'descripcion'            => 'nombre',
+    'idRol' => 'rol',
 
     ],
 
