@@ -11,7 +11,7 @@
 		<div class="banner-data">
 
 			<div class=" text-center ">
-			<h1>Registro de Géneros</h1>
+			<h1>Registro de Género</h1>
 		    </div>
 
 		    <br>

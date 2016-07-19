@@ -25,7 +25,7 @@
 
 				<thead>
 
-				<tr><th>Género</th><th>Operación</th></tr>
+				<tr><th>Nombre del Género</th><th>Operación</th></tr>
 
 				</thead>
 
