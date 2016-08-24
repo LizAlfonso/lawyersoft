@@ -24,7 +24,7 @@ class CreatePersonasTable extends Migration
             $table->date('fechaNacimiento')->nullable();
 
             //foreign key
-            $table->integer('idGenero')->unsigned();
+            $table->integer('idGenero')->unsigned()->nullable();
             $table->foreign('idGenero')->references('idGenero')->on('generos');
 
             //others

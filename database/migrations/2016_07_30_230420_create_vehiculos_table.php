@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGenerosTable extends Migration
+class CreateVehiculosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,20 @@ class CreateGenerosTable extends Migration
      */
     public function up()
     {
-        Schema::create('generos', function (Blueprint $table) {
+        Schema::create('vehiculos', function (Blueprint $table) {
 
             //primary key
-            $table->increments('idGenero');
+            $table->increments('idVehiculo');
 
             //normal values
-            $table->string('nombre',10)->unique();
+            $table->string('placa',10)->unique();
+            $table->string('marca',20)->nullable();
+            $table->string('modelo',20)->nullable();
+            $table->string('color',20)->nullable();
 
             //others
             $table->timestamps();
-
+            $table->softDeletes();
         });
     }
 
@@ -33,6 +36,6 @@ class CreateGenerosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('generos');
+        Schema::drop('vehiculos');
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCorreoPersonasTable extends Migration
+class CreateTelefonoAseguradorasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,17 @@ class CreateCorreoPersonasTable extends Migration
      */
     public function up()
     {
-        Schema::create('correo_personas', function (Blueprint $table) {
+        Schema::create('telefono_aseguradoras', function (Blueprint $table) {
 
             //primary key
-            $table->increments('idCorreoPersona');
+            $table->increments('idTelefonoAseguradora');
 
             //normal values
-            $table->string('correo',100);
+            $table->string('numero',13);
 
             //foreign key
-            $table->integer('idPersona')->unsigned();
-            $table->foreign('idPersona')->references('idPersona')->on('personas');
+            $table->integer('idAseguradoraTercero')->unsigned();
+            $table->foreign('idAseguradoraTercero')->references('idAseguradoraTercero')->on('aseguradora_terceros');
 
             //others
             $table->timestamps();
@@ -36,6 +36,6 @@ class CreateCorreoPersonasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('correo_personas');
+        Schema::drop('telefono_aseguradoras');
     }
 }

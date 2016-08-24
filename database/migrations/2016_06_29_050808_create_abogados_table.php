@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGenerosTable extends Migration
+class CreateAbogadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,21 @@ class CreateGenerosTable extends Migration
      */
     public function up()
     {
-        Schema::create('generos', function (Blueprint $table) {
+        Schema::create('abogados', function (Blueprint $table) {
 
             //primary key
-            $table->increments('idGenero');
+            $table->increments('idAbogado');
 
             //normal values
-            $table->string('nombre',10)->unique();
+            $table->date('fechaVinculacion')->nullable();
+
+            //foreign key
+            $table->integer('idPersona')->unsigned();
+            $table->foreign('idPersona')->references('idPersona')->on('personas');
 
             //others
             $table->timestamps();
-
+            $table->softDeletes();
         });
     }
 
@@ -33,6 +37,6 @@ class CreateGenerosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('generos');
+        Schema::drop('abogados');
     }
 }

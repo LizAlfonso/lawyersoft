@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCiudadsTable extends Migration
+class CreateImplicadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,17 @@ class CreateCiudadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ciudads', function (Blueprint $table) {
-            
+        Schema::create('implicados', function (Blueprint $table) {
+       
             //primary key
-            $table->increments('idCiudad');
+            $table->increments('idImplicado');
 
             //normal values
-            $table->string('nombre',20)->unique();
+            $table->string('empresa',30)->nullable();
+
+            //foreign key
+            $table->integer('idPersona')->unsigned();
+            $table->foreign('idPersona')->references('idPersona')->on('personas');          
 
             //others
             $table->timestamps();
@@ -33,6 +37,6 @@ class CreateCiudadsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('ciudads');
+        Schema::drop('implicados');
     }
 }

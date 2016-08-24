@@ -8,5 +8,5 @@ class Genero extends Model
 {
     protected $table = "generos";
     protected $primaryKey = "idGenero"; //se agrega si el nombre de pk no es id
-    protected $fillable = ['descripcion'];
+    protected $fillable = ['nombre'];
 }

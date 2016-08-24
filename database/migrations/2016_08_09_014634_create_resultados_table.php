@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGenerosTable extends Migration
+class CreateResultadosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,17 +12,17 @@ class CreateGenerosTable extends Migration
      */
     public function up()
     {
-        Schema::create('generos', function (Blueprint $table) {
+        Schema::create('resultados', function (Blueprint $table) {
 
             //primary key
-            $table->increments('idGenero');
-
+            $table->increments('idResultado');
+            
             //normal values
-            $table->string('nombre',10)->unique();
+            $table->string('nombre',25)->unique();
 
             //others
             $table->timestamps();
-
+            $table->softDeletes();           
         });
     }
 
@@ -33,6 +33,6 @@ class CreateGenerosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('generos');
+        Schema::drop('resultados');
     }
 }

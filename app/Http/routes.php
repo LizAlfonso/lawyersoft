@@ -17,9 +17,13 @@
 
 Route::get('/', 'FrontController@index');
 Route::get('principal', 'FrontController@principal');
-Route::get('log', 'FrontController@log');
 
 //controladores RESTful
 
 Route::resource('login','LoginController');
+Route::get('logout','LoginController@logout');
 Route::resource('usuario', 'UsuarioController');
+Route::resource('genero', 'GeneroController');
+Route::resource('ciudad', 'CiudadController');
+
+Route::resource('tipo', 'TipoController');

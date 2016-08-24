@@ -8,5 +8,5 @@ class CorreoPersona extends Model
 {
     protected $table = "correo_personas";
     protected $primaryKey = "idCorreoPersona";
-    protected $fillable = ['descripcion'];
+    protected $fillable = ['correo','idPersona'];
 }

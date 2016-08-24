@@ -11,7 +11,7 @@ class Ciudad extends Model
 
     protected $table = "ciudads";
     protected $primaryKey = "idCiudad"; //se agrega si el nombre de pk no es id
-    protected $fillable = ['descripcion'];
+    protected $fillable = ['nombre'];
     protected $dates = ['deleted_at'];   //para deshabilitar el registro
     
 }

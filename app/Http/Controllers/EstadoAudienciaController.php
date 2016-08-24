@@ -5,30 +5,17 @@ namespace LawyerSoft\Http\Controllers;
 use Illuminate\Http\Request;
 
 use LawyerSoft\Http\Requests;
-use LawyerSoft\Ciudad;
-use LawyerSoft\Http\Requests\CiudadCreateRequest;
-use LawyerSoft\Http\Requests\CiudadUpdateRequest;
-use Session;
-use Redirect;
 
-class CiudadController extends Controller
+class EstadoAudienciaController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-
-    }
-    
     public function index()
     {
-        $ciudades = Ciudad::All();
-        return view('ciudad.index',compact('ciudades'));
+        //
     }
 
     /**
@@ -38,7 +25,7 @@ class CiudadController extends Controller
      */
     public function create()
     {
-        return view('ciudad.create');
+        //
     }
 
     /**
@@ -47,13 +34,9 @@ class CiudadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CiudadCreateRequest $request)
+    public function store(Request $request)
     {
-        Ciudad::create([
-       'descripcion' => $request['descripcion'],
-            ]);
-
-        return redirect('ciudad')->with('message','Ciudad registrada correctamente');
+        //
     }
 
     /**
@@ -75,8 +58,7 @@ class CiudadController extends Controller
      */
     public function edit($id)
     {
-        $ciudad = Ciudad::find($id);
-        return view('ciudad.edit',['ciudad'=>$ciudad]);
+        //
     }
 
     /**
@@ -86,14 +68,9 @@ class CiudadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CiudadUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $ciudad = Ciudad::find($id);
-        $ciudad->fill($request->all());
-        $ciudad->save();
-
-        Session::flash('message','Ciudad modificada correctamente');
-        return Redirect::to('ciudad');
+        //
     }
 
     /**
@@ -104,9 +81,6 @@ class CiudadController extends Controller
      */
     public function destroy($id)
     {
-        $ciudad = Ciudad::find($id);
-        $ciudad->delete();
-        Session::flash('message','Ciudad eliminada correctamente');
-        return Redirect::to('ciudad');
+        //
     }
 }

@@ -8,5 +8,5 @@ class TelefonoPersona extends Model
 {
     protected $table = "tefono_personas";
     protected $primaryKey = "idTelefonoPersona";
-    protected $fillable = ['numero'];
+    protected $fillable = ['numero','idPersona'];
 }

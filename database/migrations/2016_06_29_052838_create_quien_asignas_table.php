@@ -3,29 +3,32 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCorreoPersonasTable extends Migration
+class CreateQuienAsignasTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
+    
     public function up()
     {
-        Schema::create('correo_personas', function (Blueprint $table) {
+        Schema::create('quien_asignas', function (Blueprint $table) {
 
             //primary key
-            $table->increments('idCorreoPersona');
+            $table->increments('idQuienAsigna');
 
-            //normal values
-            $table->string('correo',100);
-
-            //foreign key
+           //foreign key
             $table->integer('idPersona')->unsigned();
             $table->foreign('idPersona')->references('idPersona')->on('personas');
 
+            $table->integer('idCiudad')->unsigned();
+            $table->foreign('idCiudad')->references('idCiudad')->on('ciudads');
+
+
             //others
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -36,6 +39,6 @@ class CreateCorreoPersonasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('correo_personas');
+        Schema::drop('quien_asignas');
     }
 }
