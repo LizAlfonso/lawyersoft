@@ -10,7 +10,7 @@
 		<div class="banner-data">
 
 			<div class=" text-center ">
-			<h1>Modificar Servicio</h1>
+			<h1>Modificar Género</h1>
 		    </div>
 
 		    <br>

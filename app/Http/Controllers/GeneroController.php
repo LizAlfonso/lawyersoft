@@ -50,7 +50,7 @@ class GeneroController extends Controller
     public function store(GeneroCreateRequest $request)
     {
         Genero::create([
-       'descripcion' => $request['descripcion'],
+       'nombre' => $request['nombre'],
             ]);
 
         return redirect('genero')->with('message','Género registrado correctamente');

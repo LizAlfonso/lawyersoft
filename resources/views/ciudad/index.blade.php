@@ -33,7 +33,7 @@
 
 					@foreach($ciudades as $ciudad)
 					 
-						<tr><td>{{$ciudad->descripcion}}</td>
+						<tr><td>{{$ciudad->nombre}}</td>
 						<td> <div class="twoColumns col-md-10">
 						{!!link_to_route('ciudad.edit', $title = 'Modificar', $parameters = $ciudad->idCiudad, $attributes = ['class'=>'btn btn-success'])!!}
 

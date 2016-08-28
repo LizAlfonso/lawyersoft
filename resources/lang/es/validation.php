@@ -111,7 +111,6 @@ return [
     'password'               => 'contraseña',
     'password_confirmation'  => 'confirmar contraseña',
     'idRol'                  => 'rol',
-    'descripcion'            => 'nombre',
 
     ],
 

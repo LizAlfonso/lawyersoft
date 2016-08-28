@@ -24,7 +24,7 @@ class CiudadUpdateRequest extends Request
     public function rules()
     {
         return [
-            'descripcion'=> 'required|unique:ciudads',
+            'nombre'=> 'required',
         ];
     }
 }

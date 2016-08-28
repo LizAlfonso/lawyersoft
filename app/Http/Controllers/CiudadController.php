@@ -50,7 +50,7 @@ class CiudadController extends Controller
     public function store(CiudadCreateRequest $request)
     {
         Ciudad::create([
-       'descripcion' => $request['descripcion'],
+       'nombre' => $request['nombre'],
             ]);
 
         return redirect('ciudad')->with('message','Ciudad registrada correctamente');

@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use LawyerSoft\Http\Requests;
 use LawyerSoft\Tipo;
+use LawyerSoft\Http\Requests\TipoCreateRequest;
+use LawyerSoft\Http\Requests\TipoUpdateRequest;
+use Session;
+use Redirect;
 
 class TipoController extends Controller
 {
@@ -43,9 +47,13 @@ class TipoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TipoCreateRequest $request)
     {
-        //
+        Tipo::create([
+       'nombre' => $request['nombre'],
+            ]);
+
+        return redirect('tipo')->with('message','Tipo de implicado registrado correctamente');
     }
 
     /**
@@ -67,7 +75,8 @@ class TipoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tipo = Tipo::find($id);
+        return view('tipo.edit',['tipo'=>$tipo]);
     }
 
     /**
@@ -77,9 +86,14 @@ class TipoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TipoUpdateRequest $request, $id)
     {
-        //
+        $tipo = Tipo::find($id);
+        $tipo->fill($request->all());
+        $tipo->save();
+
+        Session::flash('message','Tipo de implicado modificado correctamente');
+        return Redirect::to('tipo');
     }
 
     /**
@@ -90,6 +104,9 @@ class TipoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tipo = Tipo::find($id);
+        $tipo->delete();
+        Session::flash('message','Tipo de implicado eliminado correctamente');
+        return Redirect::to('tipo');
     }
 }

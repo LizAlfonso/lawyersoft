@@ -33,8 +33,8 @@
 
 					@foreach($tipos as $tipo)
 					 
-						<tr><td>{{$tipo->descripcion}}</td>
-						<td> <div class="twoColumns col-md-10">
+						<tr><td>{{$tipo->nombre}}</td>
+						<td> <div class="twoColumns col-md-12">
 						{!!link_to_route('tipo.edit', $title = 'Modificar', $parameters = $tipo->idTipo, $attributes = ['class'=>'btn btn-success'])!!}
 
 						{!!Form::open(['route'=> ['tipo.destroy',$tipo->idTipo],'method'=>'DELETE'])!!}

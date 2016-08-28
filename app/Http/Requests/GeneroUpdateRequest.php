@@ -24,7 +24,7 @@ class GeneroUpdateRequest extends Request
     public function rules()
     {
         return [
-            'descripcion'=> 'required|unique:generos',
+            'nombre'=> 'required',
         ];
     }
 }

@@ -33,7 +33,7 @@
 
 					@foreach($generos as $genero)
 					 
-						<tr><td>{{$genero->descripcion}}</td>
+						<tr><td>{{$genero->nombre}}</td>
 						<td> <div class="twoColumns col-md-10">
 						{!!link_to_route('genero.edit', $title = 'Modificar', $parameters = $genero->idGenero, $attributes = ['class'=>'btn btn-success'])!!}
 

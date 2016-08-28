@@ -18,7 +18,7 @@ class CreateRolsTable extends Migration
             $table->increments('idRol');
 
             //normal values
-            $table->string('descripcion',15)->unique();
+            $table->string('nombre',15)->unique();
 
             //others
             $table->timestamps();

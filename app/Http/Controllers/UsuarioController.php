@@ -32,7 +32,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        $roles = Rol::lists('descripcion','idRol');
+        $roles = Rol::lists('nombre','idRol');
         return view('usuario.create',compact('roles'));
     }
 

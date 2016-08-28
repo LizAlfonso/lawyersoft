@@ -11,6 +11,6 @@ class Tipo extends Model
 
     protected $table = "tipos";
     protected $primaryKey = "idTipo"; //se agrega si el nombre de pk no es id
-    protected $fillable = ['tipo'];
+    protected $fillable = ['nombre'];
     protected $dates = ['deleted_at'];   //para deshabilitar el registro
 }

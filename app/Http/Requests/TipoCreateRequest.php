@@ -4,7 +4,7 @@ namespace LawyerSoft\Http\Requests;
 
 use LawyerSoft\Http\Requests\Request;
 
-class CiudadCreateRequest extends Request
+class TipoCreateRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class CiudadCreateRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=> 'required|unique:ciudads',
+            'nombre'=> 'required|unique:tipos',
         ];
     }
 }

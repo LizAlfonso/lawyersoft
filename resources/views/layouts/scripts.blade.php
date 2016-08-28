@@ -42,11 +42,11 @@ $('.btn-danger').click(function()
 		 }
 
 
-    $("#idDP").datepicker(
-    {
-    	format: "yyyy/mm/dd",
-    	language: "es"
-    })
+    // $("#idDP").datepicker(
+    // {
+    // 	format: "yyyy/mm/dd",
+    // 	language: "es"
+    // })
 
 </script>
 

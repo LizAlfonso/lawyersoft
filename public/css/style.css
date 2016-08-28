@@ -19,13 +19,15 @@
 
 /*----start-container----*/
 .container{
-	width:60%;
+	width:80% !important; 
+	padding-right: 0px !important;
 }
 /*-----start-header----*/
 
 .logo{
 	float: left;
 	margin-top: 0.5em 0em;
+	margin-left: -50px;
 }
 /*.logo a{
 	color: #303030;
@@ -41,7 +43,7 @@
 }*/
 /*----navbar-nav----*/
 .top-header{
-	padding: 0.6em -1em;
+	padding: 0.6em 0em;
     background:#2E2E2E;
 }
 
@@ -715,7 +717,7 @@ nav a {
 /*---- contact ----*/
 .footer{
 	background: #2E2E2E;
-	padding: 2.35em 0em;
+	padding: 2.6em 0em;
 }
 
 
@@ -1283,7 +1285,7 @@ nav a {
 
 .card-container{
 	max-width: 500px;
-    padding: 27px 40px;
+    padding: 20px 0px;
 }
 
 .profile-img-card {
@@ -1312,14 +1314,14 @@ nav a {
         height: 100%;
     }
     .wrapper {
-       min-height: 93.4%;
+       min-height: 95.58%;
        height: auto !important;
        height: 100%;
        margin: 0 auto -3em;
    }
 
    .push {
-       height: 3em;
+       height: 0.2em;
    }
 /*
    .botonDerecha{

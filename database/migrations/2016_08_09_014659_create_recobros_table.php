@@ -18,12 +18,10 @@ class CreateRecobrosTable extends Migration
             $table->increments('idRecobro');
 
             //normal values
-            $table->integer('valorDeducible',10);
-            $table->integer('valorCancelado',10);
+            $table->integer('valorDeducible');
+            $table->integer('valorCancelado');
             $table->date('fechaEnvio')->nullable();
-
             $table->double('porcentajeCancelado',3,2)->nullable();
-
             $table->string('resultado',25)->nullable();
             $table->string('observaciones',60)->nullable();
 
