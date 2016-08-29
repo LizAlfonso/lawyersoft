@@ -4,7 +4,7 @@ namespace LawyerSoft\Http\Requests;
 
 use LawyerSoft\Http\Requests\Request;
 
-class GeneroCreateRequest extends Request
+class LugarUpdateRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class GeneroCreateRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=> 'required|unique:generos|max:10',
+             'nombre'=> 'required|max:40',
         ];
     }
 }

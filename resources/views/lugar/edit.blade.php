@@ -3,19 +3,19 @@
 
 @section('content')
 
-{!!Form::model($tipo,['route'=> ['tipo.update',$tipo->idTipo],'method'=>'PUT'])!!}
+{!!Form::model($lugar,['route'=> ['lugar.update',$lugar->idLugar],'method'=>'PUT'])!!}
 
 	<div class="container" >
 
 		<div class="banner-data">
 
 			<div class=" text-center ">
-			<h1>Modificar Tipo de implicado</h1>
+			<h1>Modificar Lugar de audiencia</h1>
 		    </div>
 
 		    <br>
 
-			@include('tipo.forms.tipo')
+			@include('lugar.forms.lugar')
 
 			<div class="form-group ">
 			{!!Form::submit('Modificar',['class'=>'btn btn-success'])!!}

@@ -24,7 +24,7 @@ class TipoCreateRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=> 'required|unique:tipos',
+            'nombre'=> 'required|unique:tipos|max:10',
         ];
     }
 }

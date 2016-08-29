@@ -25,5 +25,7 @@ Route::get('logout','LoginController@logout');
 Route::resource('usuario', 'UsuarioController');
 Route::resource('genero', 'GeneroController');
 Route::resource('ciudad', 'CiudadController');
-
 Route::resource('tipo', 'TipoController');
+
+Route::resource('lugar','LugarController');
+Route::resource('estadoAudiencia','EstadoAudienciaController');

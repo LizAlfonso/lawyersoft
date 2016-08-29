@@ -24,7 +24,7 @@ class CiudadCreateRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=> 'required|unique:ciudads',
+            'nombre'=> 'required|unique:ciudads|max:20',
         ];
     }
 }
