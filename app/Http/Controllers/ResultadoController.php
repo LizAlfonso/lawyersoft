@@ -5,6 +5,11 @@ namespace LawyerSoft\Http\Controllers;
 use Illuminate\Http\Request;
 
 use LawyerSoft\Http\Requests;
+use LawyerSoft\Resultado;
+use LawyerSoft\Http\Requests\ResultadoCreateRequest;
+use LawyerSoft\Http\Requests\ResultadoUpdateRequest;
+use Session;
+use Redirect;
 
 class ResultadoController extends Controller
 {
@@ -13,9 +18,16 @@ class ResultadoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    } 
+
     public function index()
     {
-        //
+        $resultados = Resultado::All();
+        return view('resultado.index',compact('resultados'));
     }
 
     /**
@@ -25,7 +37,7 @@ class ResultadoController extends Controller
      */
     public function create()
     {
-        //
+        return view('resultado.create');
     }
 
     /**
@@ -34,9 +46,13 @@ class ResultadoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ResultadoCreateRequest $request)
     {
-        //
+        Resultado::create([
+       'nombre' => $request['nombre'],
+            ]);
+
+        return redirect('resultado')->with('message','Resultado de fallo registrado correctamente');
     }
 
     /**
@@ -58,7 +74,8 @@ class ResultadoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $resultado = Resultado::find($id);
+        return view('resultado.edit',['resultado'=>$resultado]);
     }
 
     /**
@@ -68,9 +85,14 @@ class ResultadoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ResultadoUpdateRequest $request, $id)
     {
-        //
+        $resultado = Resultado::find($id);
+        $resultado->fill($request->all());
+        $resultado->save();
+
+        Session::flash('message','Resultado de fallo modificado correctamente');
+        return Redirect::to('resultado');
     }
 
     /**
@@ -81,6 +103,9 @@ class ResultadoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $resultado = Resultado::find($id);
+        $resultado->delete();
+        Session::flash('message','Resultado de fallo eliminado correctamente');
+        return Redirect::to('resultado');
     }
 }

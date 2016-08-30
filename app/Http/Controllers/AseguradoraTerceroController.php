@@ -5,6 +5,11 @@ namespace LawyerSoft\Http\Controllers;
 use Illuminate\Http\Request;
 
 use LawyerSoft\Http\Requests;
+use LawyerSoft\AseguradoraTercero;
+use LawyerSoft\Http\Requests\AseguradoraTerceroCreateRequest;
+use LawyerSoft\Http\Requests\AseguradoraTerceroUpdateRequest;
+use Session;
+use Redirect;
 
 class AseguradoraTerceroController extends Controller
 {
@@ -13,9 +18,16 @@ class AseguradoraTerceroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    } 
+
     public function index()
     {
-        //
+        $aseguradoraTerceros = AseguradoraTercero::All();
+        return view('aseguradoraTercero.index',compact('aseguradoraTerceros'));
     }
 
     /**
@@ -25,7 +37,7 @@ class AseguradoraTerceroController extends Controller
      */
     public function create()
     {
-        //
+        return view('aseguradoraTercero.create');
     }
 
     /**
@@ -34,9 +46,13 @@ class AseguradoraTerceroController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AseguradoraTerceroCreateRequest $request)
     {
-        //
+        AseguradoraTercero::create([
+       'nombre' => $request['nombre'],
+            ]);
+
+        return redirect('aseguradoraTercero')->with('message','Aseguradora de tercero registrada correctamente');
     }
 
     /**
@@ -58,7 +74,8 @@ class AseguradoraTerceroController extends Controller
      */
     public function edit($id)
     {
-        //
+        $aseguradoraTercero = AseguradoraTercero::find($id);
+        return view('aseguradoraTercero.edit',['aseguradoraTercero'=>$aseguradoraTercero]);
     }
 
     /**
@@ -68,9 +85,14 @@ class AseguradoraTerceroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AseguradoraTerceroUpdateRequest $request, $id)
     {
-        //
+        $aseguradoraTercero = AseguradoraTercero::find($id);
+        $aseguradoraTercero->fill($request->all());
+        $aseguradoraTercero->save();
+
+        Session::flash('message','Aseguradora de tercero modificada correctamente');
+        return Redirect::to('aseguradoraTercero');
     }
 
     /**
@@ -81,6 +103,9 @@ class AseguradoraTerceroController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $aseguradoraTercero = AseguradoraTercero::find($id);
+        $aseguradoraTercero->delete();
+        Session::flash('message','Aseguradora de tercero eliminada correctamente');
+        return Redirect::to('aseguradoraTercero');
     }
 }

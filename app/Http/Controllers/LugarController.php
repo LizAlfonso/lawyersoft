@@ -48,7 +48,7 @@ class LugarController extends Controller
      */
     public function store(LugarCreateRequest $request)
     {
-         Lugar::create([
+        Lugar::create([
        'nombre' => $request['nombre'],
             ]);
 

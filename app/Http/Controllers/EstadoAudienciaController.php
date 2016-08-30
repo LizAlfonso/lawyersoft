@@ -5,6 +5,11 @@ namespace LawyerSoft\Http\Controllers;
 use Illuminate\Http\Request;
 
 use LawyerSoft\Http\Requests;
+use LawyerSoft\EstadoAudiencia;
+use LawyerSoft\Http\Requests\EstadoAudienciaCreateRequest;
+use LawyerSoft\Http\Requests\EstadoAudienciaUpdateRequest;
+use Session;
+use Redirect;
 
 class EstadoAudienciaController extends Controller
 {
@@ -13,9 +18,16 @@ class EstadoAudienciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+    {
+        $this->middleware('auth');
+    } 
+
     public function index()
     {
-        //
+        $estadoAudiencias = EstadoAudiencia::All();
+        return view('estadoAudiencia.index',compact('estadoAudiencias'));
     }
 
     /**
@@ -25,7 +37,7 @@ class EstadoAudienciaController extends Controller
      */
     public function create()
     {
-        //
+        return view('estadoAudiencia.create');
     }
 
     /**
@@ -34,9 +46,13 @@ class EstadoAudienciaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EstadoAudienciaCreateRequest $request)
     {
-        //
+        EstadoAudiencia::create([
+       'nombre' => $request['nombre'],
+            ]);
+
+        return redirect('estadoAudiencia')->with('message','Estado de audiencia registrado correctamente');
     }
 
     /**
@@ -58,7 +74,8 @@ class EstadoAudienciaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $estadoAudiencia = EstadoAudiencia::find($id);
+        return view('estadoAudiencia.edit',['estadoAudiencia'=>$estadoAudiencia]);
     }
 
     /**
@@ -68,9 +85,14 @@ class EstadoAudienciaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EstadoAudienciaUpdateRequest $request, $id)
     {
-        //
+        $estadoAudiencia = EstadoAudiencia::find($id);
+        $estadoAudiencia->fill($request->all());
+        $estadoAudiencia->save();
+
+        Session::flash('message','Estado de audiencia modificado correctamente');
+        return Redirect::to('estadoAudiencia');
     }
 
     /**
@@ -81,6 +103,9 @@ class EstadoAudienciaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $estadoAudiencia = EstadoAudiencia::find($id);
+        $estadoAudiencia->delete();
+        Session::flash('message','Estado de audiencia eliminado correctamente');
+        return Redirect::to('estadoAudiencia');
     }
 }

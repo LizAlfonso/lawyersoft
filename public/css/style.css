@@ -19,7 +19,7 @@
 
 /*----start-container----*/
 .container{
-	width:80% !important; 
+	width:86% !important; 
 	padding-right: 0px !important;
 }
 /*-----start-header----*/
@@ -27,7 +27,7 @@
 .logo{
 	float: left;
 	margin-top: 0.5em 0em;
-	margin-left: -50px;
+	margin-left: -40px;
 }
 /*.logo a{
 	color: #303030;
@@ -185,12 +185,12 @@ nav a {
 }*/
 
 .banner-data{    
-	padding: 2.2em 20em;
+	padding: 2.2em 26em;
 	left: 20%;
 }
 
 .banner-data2{
-	padding: 2.2em 5em;
+	padding: 2.2em 13em;
 }
 
 .banner-data3{

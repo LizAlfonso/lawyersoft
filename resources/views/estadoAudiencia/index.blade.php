@@ -8,14 +8,14 @@
 
 	<div class="banner-data">
 
-		<h1><center>Lista de Lugares de audiencia</center></h1>
+		<h1><center>Lista de Estados de audiencia</center></h1>
           <br>
           
 		  <div class="col-md-9">
 		  </div>
 		  <div>
 
-		  {!!link_to_route('lugar.create', $title = 'Nuevo registro',null,$attributes = ['class'=>'btn btn-primary'])!!}
+		  {!!link_to_route('estadoAudiencia.create', $title = 'Nuevo registro',null,$attributes = ['class'=>'btn btn-primary'])!!}
           
           </div>
           <br>
@@ -24,19 +24,19 @@
 
 				<thead>
 
-				<tr><th>Nombre de Lugar de audiencia</th><th>Operación</th></tr>
+				<tr><th>Nombre de Estado de audiencia</th><th>Operación</th></tr>
 
 				</thead>
 
 				 <tbody>
 
-					@foreach($lugares as $lugar)
+					@foreach($estadoAudiencias as $estadoAudiencia)
 					 
-						<tr><td>{{$lugar->nombre}}</td>
+						<tr><td>{{$estadoAudiencia->nombre}}</td>
 						<td> <div class="twoColumns col-md-12">
-						{!!link_to_route('lugar.edit', $title = 'Modificar', $parameters = $lugar->idLugar, $attributes = ['class'=>'btn btn-success'])!!}
+						{!!link_to_route('estadoAudiencia.edit', $title = 'Modificar', $parameters = $estadoAudiencia->idEstadoAudiencia, $attributes = ['class'=>'btn btn-success'])!!}
 
-						{!!Form::open(['route'=> ['lugar.destroy',$lugar->idLugar],'method'=>'DELETE'])!!}
+						{!!Form::open(['route'=> ['estadoAudiencia.destroy',$estadoAudiencia->idEstadoAudiencia],'method'=>'DELETE'])!!}
 			            {!!Form::button('Eliminar',['class'=>'btn btn-danger'])!!}
                         {!!Form::close()!!} 
                         </div></td></tr>
